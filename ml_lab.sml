@@ -2,12 +2,41 @@
 *
 * CSCI 305 - ML Programming Lab
 *
-* <firstname> <lastname>
-* <email-address>
+* Jay Van Alstyne
+* jay.vanalstyne@montana.edu
 *
 ***************************************************************)
 
 (* Define your data type and functions here *)
+fun f [] = []			(* a *)
+	| f(x::xs) = (x+1) :: (f xs);	(* b *)
+
+datatype 'element set = Empty
+	| Set of 'element * 'element set;
+
+fun isMember e Empty = false
+	| isMember e (Set(setElement, nextSet)) =
+		if e = setElement then true
+		else isMember e nextSet;
+
+fun list2Set [] = Empty		(* Still needs to check for duplicates before adding to set. *)
+	| list2Set (head::tail) = Set (head, (list2Set tail));
+
+(* Checks to see if the first member of set2 is in set1. If not, adds it to the beginning of a new set.
+Regardless of the outcome, it will call itself again until set2 is Empty.
+It then adds set1 in its entirety to the end and returns the set it built. *)
+fun union set1 Empty = set1		(* Make this work. *)
+	| union set1 (Set(setElement, nextSet)) =
+		if isMember setElement set1 then union set1 nextSet
+		else Set(setElement, (union set1 nextSet);
+
+(* Checks to see if the first member of set2 is in set1. If so, adds it to the beginning of a new set.
+Regardless of the outcome, it will call itself again until set2 is Empty.
+It then adds Empty to the end and reurns the set it built. *)
+fun intersect set1 Empty = Empty		(* This one works. *)
+	| intersect set1 (Set(setElement, nextSet)) =
+		if isMember setElement set1 then Set(setElement, (intersect set1 nextSet))
+		else intersect set1 nextSet;
 
 (* Simple function to stringify the contents of a Set of characters *)
 fun stringifyCharSet Empty = ""

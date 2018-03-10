@@ -22,13 +22,14 @@ fun isMember e Empty = false
 fun list2Set [] = Empty		(* Still needs to check for duplicates before adding to set. *)
 	| list2Set (head::tail) = Set (head, (list2Set tail));
 
+
 (* Checks to see if the first member of set2 is in set1. If not, adds it to the beginning of a new set.
 Regardless of the outcome, it will call itself again until set2 is Empty.
 It then adds set1 in its entirety to the end and returns the set it built. *)
-fun union set1 Empty = set1		(* Make this work. *)
+fun union set1 Empty = set1		(* This also works now! *)
 	| union set1 (Set(setElement, nextSet)) =
 		if isMember setElement set1 then union set1 nextSet
-		else Set(setElement, (union set1 nextSet);
+		else Set(setElement, (union set1 nextSet));
 
 (* Checks to see if the first member of set2 is in set1. If so, adds it to the beginning of a new set.
 Regardless of the outcome, it will call itself again until set2 is Empty.
@@ -66,7 +67,7 @@ list2Set [6, 2, 2];
 list2Set ["x", "y", "z", "x"];
 
 (* Question 1 *)
-f [3, 1, 4, 1, 5, 9]
+f [3, 1, 4, 1, 5, 9];
 
 (* Question 5 *)
 val quest5 = isMember "one" (list2Set ["1", "2", "3", "4"]);

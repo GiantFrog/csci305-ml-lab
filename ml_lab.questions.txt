@@ -1,34 +1,34 @@
-<firstname> <lastname>
+Jay Van Alstyne
 CSCI 305
 Spring 2018
 Lab Questions
 =======================
-1.
+1. val it = [4,2,5,2,6,10] : int list
 
-2.
+2. f adds 1 to every item in a list.
 
-3.
+3. If the input is an empty list, return an empty list.
 
-4.
+4. Or, add 1 to the head of the list, then cons it onto whatever you get by calling f again on the rest of the list.
 
-5.
+5. false
 
-6.
+6. Tail recursion, because the very last step is to jump into the next set.
 
-7.
+7. { it was the best of times, it was the worst of times }
 
-8.
+8. In our particular scenario with isMember, tail recursion lets us iterate one step at a time and immediately stop or pull out as soon as we find a match. If we were using head recursion, the next iteration would be called before we did any of the processing (in this case, comparing the variables). We would start from the end of the list and have to go back through every step, even if we immediately found a match.
 
-9.
+9. { ham green eggs and }
 
-10.
+10. { macaroni and }
 
-11.
+11. It's pretty cool just how easily all the built-in datatypes and operators can be essentially rewritten. I suppose that's why they call it metalanguage.
 
-12.
+12. It's very counterintuitive to what I'm used to. It feels like coding in MATLAB, but without any of the practical reasons why you'd ever want to code in MATLAB.
 
-13.
+13. No, not really. ML makes a bit more sense because of it, though. Actually writing code does wonders for that.
 
-14.
+14. Probably 2-3, but many, many more were spent going over your slides and lecture videos.
 
-15.
+15. The only reason I could maybe see myself using ML again would be for writing a programming language of my own. During this section I filtered github by things written in standard ML for a little inspiration on what I could use it for. The only noteworthy thing I found was the Haskell  Research Compiler, along with a couple other compilers and code optimizers.

@@ -14,14 +14,17 @@ fun f [] = []			(* a *)
 datatype 'element set = Empty
 	| Set of 'element * 'element set;
 
+(* If e is the first element of the given set, return true. If not, check the next element of the set.
+It will iterate through every element until it reaches Empty, where it will return false. *)
 fun isMember e Empty = false
 	| isMember e (Set(setElement, nextSet)) =
 		if e = setElement then true
 		else isMember e nextSet;
 
+(* Adds the head onto the beginning of the set genrated by calling list2Set on the tail.
+This turns a list into a set from right to left, essentially. Does not check for duplicates. *)
 fun list2Set [] = Empty		(* Still needs to check for duplicates before adding to set. *)
 	| list2Set (head::tail) = Set (head, (list2Set tail));
-
 
 (* Checks to see if the first member of set2 is in set1. If not, adds it to the beginning of a new set.
 Regardless of the outcome, it will call itself again until set2 is Empty.
